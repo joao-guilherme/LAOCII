@@ -2,7 +2,7 @@
 
 *_generation_script*
 *_inst.vhd
-*.bak
+*.bak*
 *.cmp
 *.done
 *.eqn
@@ -48,7 +48,7 @@ PLLJ_PLLSPE_INFO.txt
 *.dat
 *.dbs
 *.psm
-*.bak
+*.bak*
 *.cmp
 *.jpg
 *.html
