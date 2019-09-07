@@ -1,0 +1,122 @@
+# do parte2_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/parte2.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module parte2
+# 
+# Top level modules:
+# 	parte2
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/decodificador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decodificador
+# 
+# Top level modules:
+# 	decodificador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/ramlpm.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ramlpm
+# 
+# Top level modules:
+# 	ramlpm
+# 
+vsim -Lf altera_mf_ver -do parte2_run_msim_rtl_verilog.do -l msim_transcript -i work.parte2
+# vsim -Lf altera_mf_ver -do parte2_run_msim_rtl_verilog.do -l msim_transcript -i work.parte2 
+# Loading work.parte2
+# Loading work.ramlpm
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.decodificador
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/parte2.v(13): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'data'. The port definition is at: /home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/decodificador.v(2).
+#         Region: /parte2/decimal_address
+# do parte2_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/parte2.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module parte2
+# 
+# Top level modules:
+# 	parte2
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/decodificador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decodificador
+# 
+# Top level modules:
+# 	decodificador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2 {/home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/ramlpm.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ramlpm
+# 
+# Top level modules:
+# 	ramlpm
+# 
+add wave -position insertpoint  \
+{sim:/parte2/SW[17]}
+add wave -position insertpoint  \
+{sim:/parte2/SW[16]}
+add wave -position insertpoint  \
+{sim:/parte2/SW[13]} \
+{sim:/parte2/SW[12]} \
+{sim:/parte2/SW[11]} \
+{sim:/parte2/SW[10]} \
+{sim:/parte2/SW[9]}
+add wave -position insertpoint  \
+{sim:/parte2/SW[7]} \
+{sim:/parte2/SW[6]} \
+{sim:/parte2/SW[5]} \
+{sim:/parte2/SW[4]} \
+{sim:/parte2/SW[3]} \
+{sim:/parte2/SW[2]} \
+{sim:/parte2/SW[1]} \
+{sim:/parte2/SW[0]}
+add wave -position insertpoint  \
+sim:/parte2/data_out
+add wave -position insertpoint  \
+sim:/parte2/mem/altsyncram_component/mem_data
+force -freeze {sim:/parte2/SW[17]} 0 0
+force -freeze {sim:/parte2/SW[16]} 0 0
+force -freeze sim:/parte2/Address 0 0
+force -freeze sim:/parte2/DataIn 0 0
+run
+force -freeze {sim:/parte2/SW[17]} St1 0
+run
+force -freeze {sim:/parte2/SW[17]} St0 0
+force -freeze sim:/parte2/Address 5'd11 0
+run
+force -freeze {sim:/parte2/SW[17]} St1 0
+run
+force -freeze {sim:/parte2/SW[17]} St0 0
+force -freeze sim:/parte2/Address 5'd20 0
+run
+force -freeze {sim:/parte2/SW[17]} St1 0
+run
+force -freeze {sim:/parte2/SW[16]} St1 0
+force -freeze {sim:/parte2/SW[17]} St0 0
+force -freeze sim:/parte2/DataIn 8'hfa 0
+force -freeze sim:/parte2/Address 5'd1 0
+run
+force -freeze {sim:/parte2/SW[17]} St1 0
+run
+force -freeze {sim:/parte2/SW[17]} St0 0
+run
+force -freeze {sim:/parte2/SW[16]} St0 0
+force -freeze sim:/parte2/Address 5'd29 0
+run
+force -freeze {sim:/parte2/SW[17]} St1 0
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/joao/altera/LAOCII/Pratica_01/Parte_II/parte2/simulation/modelsim/memory_mif.do
