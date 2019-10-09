@@ -1,0 +1,151 @@
+# do praticaII_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/praticaII.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module praticaII
+# 
+# Top level modules:
+# 	praticaII
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/RB.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module RB
+# 
+# Top level modules:
+# 	RB
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/ALU.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/register.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register
+# 
+# Top level modules:
+# 	register
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/multiplex.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplex
+# 
+# Top level modules:
+# 	multiplex
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module processor
+# 
+# Top level modules:
+# 	processor
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/MEM.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module MEM
+# 
+# Top level modules:
+# 	MEM
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/control.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module control
+# 
+# Top level modules:
+# 	control
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/decoder.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decoder
+# 
+# Top level modules:
+# 	decoder
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/decoderRB.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decoderRB
+# 
+# Top level modules:
+# 	decoderRB
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/praticaII {/home/joao/altera/LAOCII/Pratica_02/praticaII/register_PC.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module register_PC
+# 
+# Top level modules:
+# 	register_PC
+# 
+vsim work.praticaII
+# vsim work.praticaII 
+# Loading work.praticaII
+# Loading work.processor
+# Loading work.control
+# Loading work.multiplex
+# Loading work.RB
+# Loading work.decoderRB
+# Loading work.register
+# Loading work.register_PC
+# Loading work.ALU
+# Loading work.MEM
+# Loading work.decoder
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(35): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'outData'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/control.v(6).
+#         Region: /praticaII/prc/ctrl
+add wave -position insertpoint  \
+{sim:/praticaII/SW[17]} \
+{sim:/praticaII/SW[16]} \
+{sim:/praticaII/SW[15]}
+force -freeze {sim:/praticaII/SW[17]} 1 0
+force -freeze {sim:/praticaII/SW[16]} 0 0
+force -freeze {sim:/praticaII/SW[15]} 0 0
+run
+# R0(0000), R1(0000), R2(0000) R3(0000)
+force -freeze {sim:/praticaII/SW[16]} St1 0
+run
+force -freeze {sim:/praticaII/SW[17]} St0 0
+run
+force -freeze {sim:/praticaII/SW[17]} 1 0, 0 {50 ps} -r 100
+run
+run
+run
+# R0(0002), R1(0000), R2(0000) R3(0000)
+run
+run
+run
+run
+run
+# R0(0002), R1(0003), R2(0000) R3(0000)
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# R0(0002), R1(0005), R2(0000) R3(0000)
+restart
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(35): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'outData'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/control.v(6).
+#         Region: /praticaII/prc/ctrl
+force -freeze {sim:/praticaII/SW[17]} 1 0
+force -freeze {sim:/praticaII/SW[16]} 0 0
+force -freeze {sim:/praticaII/SW[15]} 0 0
+run
+# R0(0000), R1(0000), R2(0000) R3(0000)
+force -freeze {sim:/praticaII/SW[16]} St1 0
+run
+force -freeze {sim:/praticaII/SW[17]} St0 0
+run
+force -freeze {sim:/praticaII/SW[17]} 1 0, 0 {50 ps} -r 100
+run
+# R0(0002), R1(0000), R2(0000) R3(0000)
+# R0(0002), R1(0003), R2(0000) R3(0000)
+# R0(0002), R1(0005), R2(0000) R3(0000)
+# R0(0002), R1(0005), R2(0006) R3(0000)
+# R0(0002), R1(0005), R2(0006) R3(0003)
+# R0(0005), R1(0005), R2(0006) R3(0003)
+# R0(0000), R1(0005), R2(0006) R3(0003)
