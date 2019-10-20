@@ -1,0 +1,136 @@
+# do pratica2_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module pratica2
+# 
+# Top level modules:
+# 	pratica2
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/processador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module processador
+# 
+# Top level modules:
+# 	processador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/memoria.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memoria
+# 
+# Top level modules:
+# 	memoria
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/decodificador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decodificador
+# 
+# Top level modules:
+# 	decodificador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/registrador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module registrador
+# 
+# Top level modules:
+# 	registrador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/controle.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module controle
+# 
+# Top level modules:
+# 	controle
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/ULA.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ULA
+# 
+# Top level modules:
+# 	ULA
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/multiplexador.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplexador
+# 
+# Top level modules:
+# 	multiplexador
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/multiplexadorBR.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module multiplexadorBR
+# 
+# Top level modules:
+# 	multiplexadorBR
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_02/pratica2 {/home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module displays
+# 
+# Top level modules:
+# 	displays
+# 
+vsim work.pratica2
+# vsim work.pratica2 
+# Loading work.pratica2
+# Loading work.processador
+# Loading work.controle
+# Loading work.registrador
+# Loading work.ULA
+# Loading work.decodificador
+# Loading work.multiplexadorBR
+# Loading work.multiplexador
+# Loading work.memoria
+# Loading work.displays
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(19): [PCDPC] - Port size (4 or 4) does not match connection size (10) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex0
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(20): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex1
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(21): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex2
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(22): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex3
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(23): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex4
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/pratica2/pratica2.v(24): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'din'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/pratica2/displays.v(1).
+#         Region: /pratica2/hex5
+add wave -position insertpoint  \
+{sim:/pratica2/SW[17]} \
+{sim:/pratica2/SW[16]} \
+{sim:/pratica2/SW[15]}
+force -freeze {sim:/pratica2/SW[17]} 0 0
+force -freeze {sim:/pratica2/SW[16]} 0 0
+force -freeze {sim:/pratica2/SW[15]} 0 0
+run
+# R0(0000), R1(0000), R2(0000), R3(0000)
+force -freeze {sim:/pratica2/SW[16]} St1 0
+run
+force -freeze {sim:/pratica2/SW[17]} 1 0, 0 {50 ps} -r 100
+run
+run
+# R0(0002), R1(0000), R2(0000), R3(0000)
+# R0(0002), R1(0003), R2(0000), R3(0000)
+# R0(0002), R1(0005), R2(0000), R3(0000)
+# R0(0002), R1(0005), R2(0006), R3(0000)
+# R0(0002), R1(0005), R2(0001), R3(0000)
+# R0(0002), R1(0005), R2(0001), R3(0001)
+# R0(0003), R1(0005), R2(0001), R3(0001)
+# R0(0001), R1(0005), R2(0001), R3(0001)
+# R0(0001), R1(000a), R2(0001), R3(0001)
+# R0(0001), R1(0005), R2(0001), R3(0001)
+# R0(0000), R1(0005), R2(0001), R3(0001)
+# R0(0001), R1(0005), R2(0001), R3(0001)
+# R0(0001), R1(0000), R2(0001), R3(0001)
+# R0(0001), R1(0000), R2(0001), R3(0003)
+# R0(0001), R1(0005), R2(0001), R3(0003)
+# R0(0004), R1(0005), R2(0001), R3(0003)
+# R0(0000), R1(0005), R2(0001), R3(0003)
+# R0(0000), R1(0005), R2(0004), R3(0003)
+# R0(0000), R1(0005), R2(0007), R3(0003)
+# R0(0007), R1(0005), R2(0007), R3(0003)
+# R0(0004), R1(0005), R2(0007), R3(0003)
+# R0(0000), R1(0005), R2(0007), R3(0003)
+# R0(0000), R1(0002), R2(0007), R3(0003)
+# R0(0007), R1(0002), R2(0007), R3(0003)
+# R0(0009), R1(0002), R2(0007), R3(0003)
+# R0(0012), R1(0002), R2(0007), R3(0003)
