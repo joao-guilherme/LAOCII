@@ -2,7 +2,7 @@ module RB (
   input Clock, Wr, incr_pc, reset,
   input [2:0] addr,
   input [15:0] data,
-  output [15:0] q, outR0, outR1, outR2, outR3
+  output [15:0] q, outR0, outR1, outR2, outR3, outPC
 );
 
   wire [7:0] outDecoder;
@@ -31,5 +31,6 @@ module RB (
   assign outR1 = registers[1];
   assign outR2 = registers[2];
   assign outR3 = registers[3];
+  assign outPC = registers[7];
 
 endmodule

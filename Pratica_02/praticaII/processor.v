@@ -2,7 +2,7 @@ module processor (
   input Clock, run, reset,
   input [15:0] data_in,
   output Wr, done,
-  output [15:0] addr_out, data_out, outR0, outR1, outR2, outR3
+  output [15:0] addr_out, data_out, outR0, outR1, outR2, outR3, outPC
 );
 
   wire incr_pc, WrRegisterBank, WrIR, WrW, WrDataOut, WrAddressOut, WrA, WrG;
@@ -52,7 +52,8 @@ module processor (
     .outR0(outR0),
     .outR1(outR1),
     .outR2(outR2),
-    .outR3(outR3)
+    .outR3(outR3),
+    .outPC(outPC)
   );
 
   register #(10) IR (
