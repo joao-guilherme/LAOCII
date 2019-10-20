@@ -31,7 +31,7 @@ module control (
  * MVNZ: Rx = G !== 0 ? Ry : Rx Opcode => 0110
  * MV:   Rx = Ry                Opcode => 0111
  * MVI:  Rx = #D                Opcode => 1000
- * SD:   MEM[Rx] = Ry           Opcode => 1001
+ * SD:   MEM[Ry] = Rx           Opcode => 1001
  * LD:   Rx = MEM[Ry]           Opcode => 1010
  */
 
@@ -97,7 +97,7 @@ module control (
             end
           SD:
             begin
-              addrRegisterBank = Ry;
+              addrRegisterBank = Rx;
               multControl = RB;
               WrDataOut = 1'b1;
             end
@@ -118,7 +118,7 @@ module control (
             end
           SD:
             begin
-              addrRegisterBank = Rx;
+              addrRegisterBank = Ry;
               multControl = RB;
               WrAddressOut = 1'b1;
               WrW = 1'b1;
