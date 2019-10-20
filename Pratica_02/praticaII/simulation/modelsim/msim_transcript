@@ -89,8 +89,10 @@ vsim work.praticaII
 # Loading work.ALU
 # Loading work.MEM
 # Loading work.decoder
-# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(35): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'outData'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/control.v(6).
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(34): [PCDPC] - Port size (10 or 10) does not match connection size (16) for port 'data'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/control.v(3).
 #         Region: /praticaII/prc/ctrl
+# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(64): [PCDPC] - Port size (10 or 10) does not match connection size (16) for port 'q'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/register.v(4).
+#         Region: /praticaII/prc/IR
 add wave -position insertpoint  \
 {sim:/praticaII/SW[17]} \
 {sim:/praticaII/SW[16]} \
@@ -100,52 +102,3 @@ force -freeze {sim:/praticaII/SW[16]} 0 0
 force -freeze {sim:/praticaII/SW[15]} 0 0
 run
 # R0(0000), R1(0000), R2(0000) R3(0000)
-force -freeze {sim:/praticaII/SW[16]} St1 0
-run
-force -freeze {sim:/praticaII/SW[17]} St0 0
-run
-force -freeze {sim:/praticaII/SW[17]} 1 0, 0 {50 ps} -r 100
-run
-run
-run
-# R0(0002), R1(0000), R2(0000) R3(0000)
-run
-run
-run
-run
-run
-# R0(0002), R1(0003), R2(0000) R3(0000)
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# R0(0002), R1(0005), R2(0000) R3(0000)
-restart
-# ** Warning: (vsim-3015) /home/joao/altera/LAOCII/Pratica_02/praticaII/processor.v(35): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'outData'. The port definition is at: /home/joao/altera/LAOCII/Pratica_02/praticaII/control.v(6).
-#         Region: /praticaII/prc/ctrl
-force -freeze {sim:/praticaII/SW[17]} 1 0
-force -freeze {sim:/praticaII/SW[16]} 0 0
-force -freeze {sim:/praticaII/SW[15]} 0 0
-run
-# R0(0000), R1(0000), R2(0000) R3(0000)
-force -freeze {sim:/praticaII/SW[16]} St1 0
-run
-force -freeze {sim:/praticaII/SW[17]} St0 0
-run
-force -freeze {sim:/praticaII/SW[17]} 1 0, 0 {50 ps} -r 100
-run
-# R0(0002), R1(0000), R2(0000) R3(0000)
-# R0(0002), R1(0003), R2(0000) R3(0000)
-# R0(0002), R1(0005), R2(0000) R3(0000)
-# R0(0002), R1(0005), R2(0006) R3(0000)
-# R0(0002), R1(0005), R2(0006) R3(0003)
-# R0(0005), R1(0005), R2(0006) R3(0003)
-# R0(0000), R1(0005), R2(0006) R3(0003)
