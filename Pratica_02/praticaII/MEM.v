@@ -4,7 +4,7 @@ module MEM #(parameter FILE) (
   output [15:0] q
 );
 
-  reg [15:0] memory [0:31];  // 32 x 16
+  reg [15:0] memory [0:127];  // 128 x 16
 
   // Memory Inicialization File
   initial
