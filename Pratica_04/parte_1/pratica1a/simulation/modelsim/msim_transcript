@@ -1,0 +1,39 @@
+# do pratica1a_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /home/joao/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_04/parte_1/pratica1a {/home/joao/altera/LAOCII/Pratica_04/parte_1/pratica1a/pratica1a.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module pratica1a
+# 
+# Top level modules:
+# 	pratica1a
+# vlog -vlog01compat -work work +incdir+/home/joao/altera/LAOCII/Pratica_04/parte_1/pratica1a {/home/joao/altera/LAOCII/Pratica_04/parte_1/pratica1a/decoder.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module decoder
+# 
+# Top level modules:
+# 	decoder
+# 
+vsim work.pratica1a
+# vsim work.pratica1a 
+# Loading work.pratica1a
+# Loading work.decoder
+add wave -position insertpoint  \
+sim:/pratica1a/KEY \
+sim:/pratica1a/SW
+force -freeze sim:/pratica1a/KEY 0 0
+force -freeze sim:/pratica1a/SW 0 0
+run
+force -freeze sim:/pratica1a/SW 10 0
+force -freeze sim:/pratica1a/KEY St1 0
+run
+add wave -position insertpoint  \
+sim:/pratica1a/state
