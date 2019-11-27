@@ -56,3 +56,8 @@
 **transcript*
 **sc_dpiheader.h
 **vsim.dbg
+
+### Latex ###
+**.aux
+**.log
+**synctex.gz
