@@ -1,66 +1,58 @@
 ### Quartus II ###
 
-*_generation_script*
-*_inst.vhd
-*.bak*
-*.cmp
-*.done
-*.eqn
-*.hex
-*.html
-*.jdi
-*.jpg
-*.pin
-*.pof
-*.ptf.*
-*.qar
-*.qarlog
-*.qws
-*.rpt
-*.smsg
-*.sof
-*.sopc_builder
-*.summary
-*.tcl
-*.txt
-*~
-*example*
-*sopc_*
-*.sdc
+**_generation_script*
+**_inst.vhd
+**.bak*
+**.cmp
+**.done
+**.eqn
+**.hex
+**.html
+**.jdi
+**.pin
+**.pof
+**.ptf.*
+**.qar
+**.qarlog
+**.qws
+**.rpt
+**.smsg
+**.sof
+**.sopc_builder
+**.summary
+**.tcl
+**~
+**example*
+**sopc_*
+**.sdc
 
 # ignore Quartus II generated folders
-*/db/
-*/incremental_db/
-*/timing/
-*/testbench/
-*/*_sim/
-incremental_db/
-db/
-_output_files/
-PLLJ_PLLSPE_INFO.txt
+**/db/
+**/incremental_db/
+**/timing/
+**/testbench/
+**/*_sim/
+**output_files/
+**PLLJ_PLLSPE_INFO.txt
 
 ### ModelSim ###
 # ignore ModelSim generated files and directories (temp files and so on)
 [_@]*
 
 # ignore compilation output of ModelSim
-*.mti
-*.dat
-*.dbs
-*.psm
-*.bak*
-*.cmp
-*.jpg
-*.html
-*.bsf
+**.mti
+**.dat
+**.dbs
+**.psm
+**.html
+**.bsf
 
 # ignore simulation output of ModelSim
-wlf*
-*.wlf
-*.vstf
-*.ucdb
-cov*/
-transcript*
-sc_dpiheader.h
-vsim.dbg
-
+**wlf*
+**.wlf
+**.vstf
+**.ucdb
+**cov*/
+**transcript*
+**sc_dpiheader.h
+**vsim.dbg
