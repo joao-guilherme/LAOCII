@@ -30,7 +30,7 @@ module pratica1a (
   reg [2:0] msg;
 
   initial
-    state <= 0;
+    state <= 1;
 
   always @(posedge KEY[0])
     case(state)

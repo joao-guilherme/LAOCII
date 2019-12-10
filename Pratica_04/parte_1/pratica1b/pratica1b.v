@@ -23,7 +23,7 @@ module pratica1b (
   reg msg;
 
   initial
-    state <= 1;
+    state <= 2;
 
   always @(posedge KEY[0])
     case(state)

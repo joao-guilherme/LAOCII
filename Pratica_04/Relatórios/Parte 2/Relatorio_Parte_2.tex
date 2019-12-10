@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{a4paper, left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+
+\title{Prática IV - Parte II}
+\author{João G. Guimarães, Gabriel Arrighi Silva}
+\date{\today}
+
+\begin{document} 
+
+\maketitle
+
+\section{Introdução}
+
+\par Na parte II realizamos a implementação do protocolo de coerência Snooping (MSI). Nesta prática, simulamos e executamos o protocolo em 3 processadores, cada um com uma cache, e todos eles com uma memória principal compartilhada. O design final pode ser visualizado na figura abaixo.
+
+\vspace{\baselineskip}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{./diagrama}
+	\caption{Arquitetura do protocolo MSI para 3 processadores}
+	\label{fig: protocolo MSI}
+\end{figure}
+
+\section{Objetivos}
+\par Implementar e simular os estados e mudanças do protocolo de coerência snooping (MSI). Exibindo as mudanças de estado das caches dos processadores e as mensagens geradas para cada alteração.
+
+\section{Metodologia}
+\par Utilizar os conhecimentos obtidos ao longo do curso e os materiais disponibilizado no SIGAA e Moodle para implementar o projeto.
+
+\section{Desenvolvimento}
+
+\par Para a codificação deste projeto, foi necessário realizar um mapeamento das funções (RM, RH, WM e WH) em relação ao tempo, com isso, foi possível definir que o protocolo Snooping gasta no máximo 4 ciclos de clock.
+
+\vspace{\baselineskip}
+
+\par A partir da análise acima, foi codificado os seguintes módulos:
+
+\begin{itemize}
+	\item counter - contagem dos passos para a execução;
+	\item bus - comunicação entre as caches e a memória;
+	\item cache - abstração de uma cache real, apresentando as colunas Estado, Tag e Valor;
+	\item memory - memória compartilhada pelas caches.
+\end{itemize}
+
+\section{Estados Iniciais da Memória e Caches}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Index} & \textbf{Value}\\ \hline
+        0  & 0010   \\ \hline
+        1  & 0111   \\ \hline
+        2  & 1111   \\ \hline
+        3  & 0001   \\ \hline
+    \end{tabular}
+    \caption{Estado inicial da Memória.}
+    \label{tab: memoria}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline 
+        \textbf{Processador} & \textbf{Estado} & \textbf{Tag} & \textbf{Value} \\ \hline
+        0  & Shared   & 00 & 0010   \\ \hline
+        0  & Modified & 11 & 1010   \\ \hline
+        1  & Shared   & 00 & 0010   \\ \hline
+        1  & Modified & 01 & 1001   \\ \hline
+        2  & Modified & 10 & 0001   \\ \hline
+        2  & Invalid  & 01 & 0111   \\ \hline
+    \end{tabular}
+    \caption{Estados das caches.}
+    \label{tab: caches}
+\end{table}
+
+\section{Simulações}
+
+\subsection{Leitura com sucesso - RH}
+
+\par A simulação a seguir consiste na leitura com sucesso no processador 0 pela tag 00.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{./RH}
+	\caption{Leitura com sucesso (PC: 0, TAG: 00)}
+	\label{fig: RH}
+\end{figure}
+
+\subsection{Leitura sem sucesso - RM}
+
+\par Ao executar uma leitura sem sucesso em uma tag modificada, deve ser executado um Write Back e a memória retornar o dado requisitado. Um exemplo deste processo, pode ser visualizado abaixo, que consiste na leitura da tag 00 no processador 2.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{./RM}
+	\caption{Leitura sem sucesso com \textit{write back} (PC: 2, TAG: 00)}
+	\label{fig: RH}
+\end{figure}
+
+\par Obs.: apesar da imagem acima não ser possível visualizar a mudança da tag 10 na memória, o \textit{write back} foi executado com sucesso. Este processo pode ser verificado analisando a tabela \ref{tab: memoria}.
+
+\subsection{Escrita com sucesso - WH}
+
+\par A escrita com sucesso em uma tag modificada, faz com que o valor seja atualizado e a tag permaneça Modificada, um exeplo pode ser visto a seguir.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{./WH}
+	\caption{Escrita com sucesso (PC: 0, TAG: 11, 0011)}
+	\label{fig: WH}
+\end{figure}
+
+\subsection{Escrita sem sucesso - WM}
+
+\par Um dos processos mais complexos do protocolo Snooping é a realização de um \textit{write miss} seguido de dois \textit{write back}, este processo pode ser visualizado abaixo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm]{./WM}
+	\caption{Escrita com sucesso (PC: 0, TAG: 01, 0101)}
+	\label{fig: WM}
+\end{figure}
+
+\par Obs.: como explicado anteriormente, o primeiro \textit{write back} da tag 11 foi efetuado, porém não é possível ver a alteração em relação ao tempo pela figura \ref{fig: WM}.
+
+\section{Dificuldades}
+
+\par Ao realizar a prática do Snooping tivemos dificuldades os extrair os detalhes do funcionamento da comunicação entre os processadores e suas alterações. Dificuldades como quais variáveis iriamos utilizar, como seriam a comunicação, além de tudo a execução do protocolo.
+
+\section{Sugestões}
+
+\par Sugerimos que para as próximas turmas seria importante a definição de como seriam os módulos, variáveis e a comunicação. Esses detalhes iriam beneficiar bastante os alunos na elaboração da prática.
+
+\section{Comentários}
+
+\par Foi importante fazer a prática do Snooping para melhorar o aprendizado da aula teórica. Podemos ver melhor na prática as mudanças entre os estados das máquinas de estado.
+
+\section{Conclusão}
+
+\par A implementação do protocolo de Snooping foi realmente difícil. Com o desenho da máquina de estados em mãos foi necessário programar cada condição de estado atual e futuro com base nas entradas de hit/miss e write/read para a emissora, e as condições do barramento para a receptora, além da comunicação com a memória. Os problemas enfrentados no desenvolvimento foram mais relacionados a criação do projeto e sua execução. 
+
+\end{document}
